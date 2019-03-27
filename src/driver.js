@@ -144,14 +144,8 @@ app.get("/db/user/:userId/Todolist/:TodolistId/Todos/create", (req,res) => {
 
     var insertTodo = "INSERT INTO Todo (description, user_id, todolist_id) VALUES (\"" + desc + "\",\"" + userId + "\"," + todolistId + ")"
     connection.query(insertTodo, (err, results) => {
-        if(err) {
-            return res.send(err)
-        }
-        else {
-            return res.json({
-                data: results
-            })
-        }
+        if(err) throw err;
+        console.log("Adding Todo successful")
     });
 });
 
@@ -161,14 +155,8 @@ app.get("/db/user/:userId/Todolist/:TodolistId/Todos/delete", (req,res) => {
 
     var deleteTodo = "DELETE FROM Todo Where todo_id = " + todoId
     connection.query(deleteTodo, (err, results) => {
-        if(err) {
-            return res.send(err)
-        }
-        else {
-            return res.json({
-                data: results
-            })
-        }
+        if(err) throw err;
+        console.log("Delete Todo successful")
     });
 });
 
