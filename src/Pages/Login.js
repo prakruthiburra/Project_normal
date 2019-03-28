@@ -6,4 +6,13 @@ const Login = () => (
     </h1>
 )
 
-export default Login
+class LoginPage extends React.component {
+    
+    render{
+    return <div>
+        <button> LoginButton </button>
+        </div>;
+    }
+}
+
+export { LoginPage as default };
